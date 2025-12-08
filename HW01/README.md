@@ -46,7 +46,7 @@ su - postgres
 CREATE TABLE test2 (i serial, amount int); 
 INSERT INTO test2(amount) VALUES (100),(500); 
 SELECT * FROM test2; 
-show transaction isolation level; 
+SHOW TRANSACTION ISOLATION LEVEL;  
 \set AUTOCOMMIT OFF 
 ```
 ![create table](images/hw1_create_table.png)
@@ -57,19 +57,19 @@ show transaction isolation level;
 
 на 1-й консоли:
 ```sql
-begin; 
+BEGIN;
 SELECT * FROM test2; 
 ```
 на 2-й консоли:
 ```sql
-begin; 
+BEGIN; 
 UPDATE test2 set amount = 555 WHERE i = 1; 
 SELECT * FROM test2; 
-commit; 
+COMMIT; 
 ```
 на 1-й консоли:
 ```sql
-commit;
+COMMIT;
 SELECT * FROM test2; 
 ```
 Это демонстрирует "неповторяющееся чтение": до фиксации 2-й транзакции, измененные в ней данные не видны в др. транзакции.
@@ -82,13 +82,13 @@ SELECT * FROM test2;
 
 В 1-й консоли открываю транзакцию, устанавливаю уровень изоляции "REPEATABLE READ" и проверяю:
 ```sql
-begin; 
+BEGIN; 
 SET TRANSACTION ISOLATION LEVEL REPEATABLE READ; 
 SHOW TRANSACTION ISOLATION LEVEL; 
 ```
 Во 2-й консоли также:
 ```sql
-begin; 
+BEGIN; 
 SET TRANSACTION ISOLATION LEVEL REPEATABLE READ; 
 SHOW TRANSACTION ISOLATION LEVEL; 
 ```
