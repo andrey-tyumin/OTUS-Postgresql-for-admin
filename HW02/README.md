@@ -96,6 +96,7 @@ SELECT * FROM spp;
 отключился.
 
 ![psql add and check data](images/psql-add-check-data.png)
+
 Удалил контейнер postgres-server:
 ```bash
 docker stop postgres-server
@@ -137,4 +138,5 @@ psql -h 172.17.0.2 -U postgres
 SELECT * FROM spp; 
 ```
 Данные на месте.
+
 ![check data from host](images/check-data-in-db-from-host.png)
