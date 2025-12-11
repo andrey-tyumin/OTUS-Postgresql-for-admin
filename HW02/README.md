@@ -101,7 +101,6 @@ SELECT * FROM spp;
 ```bash
 docker stop postgres-server
 ```
-удалил контейнер postgres-servver:
 ```bash
 docker rm postgres-server
 ```
