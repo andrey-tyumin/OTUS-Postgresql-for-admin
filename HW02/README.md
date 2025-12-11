@@ -68,11 +68,12 @@ docker run -dit --name=pgclient codingpuss/postgres-client
 ```bash
 docker ps
 ```
-![deploy psql](images/psql-deploy.png)
+
 Подключился к БД postgres в контейнере postgres-server клиентом psql из контейнера pgclient:
 ```bash
 docker exec -it pgclient psql postgresql://postgres:password@172.17.0.2:5432/postgres
 ```
+![deploy psql](images/psql-deploy.png)
 Создал таблицу, внес записи:
 ```sql
 CREATE TABLE spp (i serial, amount int); 
@@ -93,6 +94,7 @@ psql -h 172.17.0.2 -U postgres
 SELECT * FROM spp; 
 ```
 отключился.
+
 ![psql add and check data](images/psql-add-check-data.png)
 Удалил контейнер postgres-server:
 ```bash
@@ -124,6 +126,7 @@ docker exec -it pgclient psql postgresql://postgres:password@172.17.0.2:5432/pos
 SELECT * FROM spp;
 ```
 Вышел из контейнера.
+
 ![check data from client in docker](images/check-data-in-db.png)
 Подключился с хоста:
 ```bash
