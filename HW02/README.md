@@ -36,9 +36,9 @@ qm set 112 --cdrom isos:iso/wattOS-R13.iso
 ```
 установил на неё wattOsR13(debian-based OS).
 
-Установил docker через apt репозиторий по инструкции c офф. сайта: 
-https://docs.docker.com/engine/install/debian/#install-using-the-repository
-Создал каталог /var/lib/postgresql.
+Установил docker через apt репозиторий по инструкции c офф. сайта:   
+https://docs.docker.com/engine/install/debian/#install-using-the-repository   
+Создал каталог /var/lib/postgresql.   
 Поиск подходящего образа для контейнера с сервером:
 ```bash
 docker search --filter is-official=true postgres
