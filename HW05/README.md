@@ -239,6 +239,8 @@ run
 Вывод теста:
 ```
 postgres@postgresql:/usr/share/sysbench$ sysbench     --db-driver=pgsql --table_size=10000 --tables=1 --threads=10 --pgsql-host=192.168.0.40 --pgsql-port=5432 --pgsql-user=sbtest --pgsql-db=sbtest --pgsql-password=password oltp_insert run
+```
+```
 sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
 
 Running the test with following options:
