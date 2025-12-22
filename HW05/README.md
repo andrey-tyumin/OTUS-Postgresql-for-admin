@@ -34,8 +34,7 @@ pct list
 ```bash
 pct exec 105 -- ip addr show
 ```
-Зайти на вм.
-захожу под postgres пользователем:
+захожу под postgres пользователя:
 ```sql
 su - postgres
 ```
