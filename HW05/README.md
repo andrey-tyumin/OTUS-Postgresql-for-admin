@@ -15,7 +15,7 @@
 Задание со *: аналогично протестировать через утилиту  [https://github.com/Percona-Lab/sysbench-tpcc](https://github.com/Percona-Lab/sysbench-tpcc "https://github.com/Percona-Lab/sysbench-tpcc")  (требует установки [https://github.com/akopytov/sysbench](https://github.com/akopytov/sysbench "https://github.com/akopytov/sysbench"))
 
 ------------
-===Создаю LXC контейнер:===
+==Создаю LXC контейнер:==
 ```bash
 pct create 105 isos:vztmpl/debian-12-turnkey-postgresql_18.1-1_amd64.tar.gz \
 --hostname postgresql \
