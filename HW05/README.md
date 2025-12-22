@@ -15,7 +15,7 @@
 Задание со *: аналогично протестировать через утилиту  [https://github.com/Percona-Lab/sysbench-tpcc](https://github.com/Percona-Lab/sysbench-tpcc "https://github.com/Percona-Lab/sysbench-tpcc")  (требует установки [https://github.com/akopytov/sysbench](https://github.com/akopytov/sysbench "https://github.com/akopytov/sysbench"))
 
 ------------
-== Создаю LXC контейнер: ==
+ Создаю LXC контейнер:
 ```bash
 pct create 105 isos:vztmpl/debian-12-turnkey-postgresql_18.1-1_amd64.tar.gz \
 --hostname postgresql \
@@ -79,11 +79,11 @@ initial connection time = 130.800 ms
 tps = 650.398043 (without initial connection time)
 ```
 Добавил след. рекомендации по CPU:\
-max_worker_processes – максимальное число фоновых процессов, которое может поддерживаться в кластере (<= числу ядер ЦПУ)\
-max_parallel_workers – максимальное число рабочих процессов, котороекластер сможет поддерживать для параллельных операций (<= числу ядер ЦПУ)\
-max_parallel_workers_per_gather – максимальное число рабочих процессов, которые могут параллельно использоваться при построении\
+*max_worker_processes* – максимальное число фоновых процессов, которое может поддерживаться в кластере (<= числу ядер ЦПУ)\
+*max_parallel_workers* – максимальное число рабочих процессов, котороекластер сможет поддерживать для параллельных операций (<= числу ядер ЦПУ)\
+*max_parallel_workers_per_gather* – максимальное число рабочих процессов, которые могут параллельно использоваться при построении\
 плана запроса (max_parallel_workers / 2)\
-max_parallel_maintenance_workers – максимальное число рабочих процессов, которые могут запускаться одной служебной командой (max_parallel_workers / 2)\
+*max_parallel_maintenance_workers* – максимальное число рабочих процессов, которые могут запускаться одной служебной командой (max_parallel_workers / 2)\
 Запустил такой же тест:
 ```bash
 postgres@postgresql:~$ pgbench -c 50 -j 2 -P 10 -T 60 test
