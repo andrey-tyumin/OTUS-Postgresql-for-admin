@@ -224,22 +224,10 @@ oltp_common \
 prepare
 ```
 Запуск теста:
-```bash
-sysbench \
-    --db-driver=pgsql \
---threads=100 \
---pgsql-host=192.168.0.40 \
---pgsql-port=5432 \
---pgsql-user=sbtest \
---pgsql-db=sbtest \
---pgsql-password=password \
-$1 \
-run
-```
-Вывод теста:
 ```
 postgres@postgresql:/usr/share/sysbench$ sysbench     --db-driver=pgsql --table_size=10000 --tables=1 --threads=10 --pgsql-host=192.168.0.40 --pgsql-port=5432 --pgsql-user=sbtest --pgsql-db=sbtest --pgsql-password=password oltp_insert run
 ```
+Вывод теста:
 ```
 sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
 
