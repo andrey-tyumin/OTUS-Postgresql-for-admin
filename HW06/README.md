@@ -199,7 +199,7 @@ postgres=# SELECT pg_size_pretty(pg_total_relation_size('test_table'));
 postgres=# UPDATE test_table SET text_data = text_data || chr(97 + floor(random() * 26)::int);
 UPDATE 1000000
 ```
-Количество "мертвых" строк:
+Количество "мертвых" строк = 0 (автовакуум включен и работает):
 ```sql
 postgres=# SELECT relname, n_live_tup, n_dead_tup, trunc(100*n_dead_tup/(n_live_tup+1))::float "ratio%", last_autovacuum 
 FROM pg_stat_user_TABLEs WHERE relname = 'test_table';
@@ -220,7 +220,7 @@ postgres=# SELECT last_autovacuum, last_autoanalyze FROM pg_stat_user_tables WHE
 ```sql
 UPDATE test_table SET text_data = text_data || chr(97 + floor(random() * 26)::int);
 ```
-Размер файла с таблицей теперь:
+Размер файла с таблицей теперь (тут нужен vacuum full :-)):
 ```sql
 postgres=# SELECT pg_size_pretty(pg_total_relation_size('test_table'));
  pg_size_pretty 
@@ -253,7 +253,7 @@ FROM pg_stat_user_TABLEs WHERE relname = 'test_table';
  test_table |    1000000 |    9997489 |    999 | 2025-12-24 19:38:46.105975+00
 (1 row)
 ````
-из рез-та запроса видно, что "живых" записей 1млн, а "мертвых" записей 10 млн.\
+из рез-та запроса видно, что "живых" записей 1 млн, а "мертвых" записей 10 млн.\
 Включил автовакуум обратно, немного подождал и посмотрел:
 ```sql
 postgres=# ALTER TABLE test_table SET (autovacuum_enabled = true);
@@ -271,7 +271,7 @@ postgres=# select pg_size_pretty(pg_total_relation_size('test_table'));
  943 MB
 (1 row)
 ```
-количество "мертвых записей =0, но размер файла таблицы тот же. Запустил vacuum full; 
+количество "мертвых записей = 0, но размер файла таблицы тот же. Запустил vacuum full: 
 ```sql
 postgres=# vacuum full test_table;
 VACUUM
