@@ -140,7 +140,7 @@ postgres=# \du
  readonly  | Cannot login
  testread  |
  ```
- в файл  добавил:
+ в файл pg_hba.conf добавил:
  ```
  local   all             all                                     md5
 ```
