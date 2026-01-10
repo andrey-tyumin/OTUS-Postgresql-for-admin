@@ -152,7 +152,8 @@ postgres@ubuntu-std2-2-8-30gb:~$ grep 'checkpoint starting' /var/log/postgresql/
 23
 postgres@ubuntu-std2-2-8-30gb:~$ 
 ```
-checkpoint-ов 23, скорее всего, создавались, когда менял настройки.
+checkpoint-ов 23, скорее всего, создавались, когда менял настройки. Поправка от преподавателя:
+>checkpoint запускается не только по времени, но и при приближении к лимиту по max_wal_size, поэтому checkpoint могло >получиться больше, чем 20
 
 ---
 
