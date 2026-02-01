@@ -67,8 +67,9 @@ VALUES
 (2,'Petr','Petrov',2),
 (3,'Vasya','Vasechkin',3);
 ```
-В итоге содержимое таблиц:
+В итоге содержимое таблиц:  
 ![содержимое таблиц](images/hw09-tables.png)
+
 
 1. INNER JOIN.   Вывел список id преподавателей, их имена, названия их курсов  и студентов на курсах.
 ```sql
@@ -77,23 +78,31 @@ JOIN courses c ON t.teacher_course_id = c.course_id
 JOIN students s ON s.course_id = t.teacher_course_id;
 ```
 ![INNER JOIN](images/hw09-1inner-join.png)
+
+
 2. LEFT JOIN.  Вывел список id преподавателей, их имена, названия их курсов.
 ```sql
 SELECT t.teacher_id,  t.teacher_first_name, t.teacher_second_name, c.course_name FROM teachers t
 LEFT JOIN courses c ON t.teacher_course_id = c.course_id;
 ```
 ![LEFT JOIN](images/hw09-2left-join.png)
+
+
 3. CROSS JOIN. Вывел все варианты из таблиц teachers и courses.
 ```sql
 SELECT * FROM students s
 CROSS JOIN teachers t
 CROSS JOIN courses c;
 ```
+
+
 4. FULL JOIN. Все записи из таблиц students и teachers.
 ```sql
 SELECT * FROM students s
 FULL JOIN teachers t ON t.teacher_course_id = s.course_id;
 ```
+
+
 5.  Запрос, в котором будут использованы разные типы соединений.
 ```sql
 SELECT t.teacher_id, t.teacher_first_name, t.teacher_second_name, c.course_name, s.first_name, s.second_name FROM teachers t
