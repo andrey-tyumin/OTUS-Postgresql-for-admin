@@ -113,7 +113,7 @@ ALTER TABLE bookings_new ATTACH PARTITION bookings_new_default DEFAULT;
 ```sql
 SELECT * FROM bookings_new_default;
 ```
-- пусто
+- пусто  
 Проверил, в какой таблице данные за декабрь:
 ```sql
 EXPLAIN SELECT * FROM bookings_new WHERE book_date BETWEEN  '2025-12-01' AND '2025-12-30';
