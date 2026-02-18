@@ -66,6 +66,8 @@ COPY public.table2 FROM '/var/lib/pgsql/backups/table1.backup';
 ```sql
 SELECT count(*) FROM public.table2;
 ```
+![COPY](images/HW13-3.png)
+
 6.Бэкап через pg_dump: создать кастомный сжатый дамп (-Fc) только схемы my_schema.
 ```sql
 \! pg_dump -n my_schema -Fc -d test_db -f /var/lib/pgsql/backups/test_db_schema.backup
