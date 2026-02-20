@@ -38,11 +38,13 @@ CREATE SCHEMA my_schema;
 Создал таблицы:
 ```sql
 CREATE TABLE my_schema.table1(id int);
-CREATE TABLE public.table2(id int);
 ```
-3. Заполнить table1 100 строками с помощью generate_series(ошибся с нулями, сделал больше).
 ```sql
-INSERT INTO my_schema.table1 SELECT generate_series(1,10000);
+CREATE TABLE my_schema.table2(id int);
+```
+3. Заполнить table1 100 строками с помощью generate_series.
+```sql
+INSERT INTO my_schema.table1 SELECT generate_series(1,100);
 ```
 Проверил:
 ```sql
@@ -60,11 +62,11 @@ COPY my_schema.table1 TO '/var/lib/pgsql/backups/table1.backup';
 ```
 6. Восстановление из COPY: Загрузить данные из CSV в table2.
 ```sql
-COPY public.table2 FROM '/var/lib/pgsql/backups/table1.backup';
+COPY my_schema.table2 FROM '/var/lib/pgsql/backups/table1.backup';
 ```
 Проверка:
 ```sql
-SELECT count(*) FROM public.table2;
+SELECT count(*) FROM my_schema.table2;
 ```
 ![COPY](images/HW13-3.png)
 
@@ -76,15 +78,31 @@ SELECT count(*) FROM public.table2;
 ```sql
 \! pg_restore --list /var/lib/pgsql/backups/test_db_schema.backup
 ```
+![pg_dump](images/HW13-2.png)
 8. Восстановление через pg_restore: В новую БД restored_db восстановить только table2 из дампа.
 ```sql
 DROP DATABASE test_db;
+```
+```sql
 \! pg_restore -C -d postgres /var/lib/pgsql/backups/test_db_schema.backup
+```
+```sql
 \l
+```
+```sql
 ALTER DATABASE test_db RENAME TO restored_db;
 ```
 Проверка:
-```sql\c restored_db
+```sql
+\c restored_db
+```
+```sql
 \dn
 ```
-![pg_dump](images/HW13-2.png)
+```sql
+\dt my_schema.*
+```
+```sql
+SELECT count(*) FROM my_schema.table2;
+```
+![pg_restore](images/HW13-4.png)
