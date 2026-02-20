@@ -83,26 +83,32 @@ SELECT count(*) FROM my_schema.table2;
 ```sql
 DROP DATABASE test_db;
 ```
-```sql
-\! pg_restore -C -d postgres /var/lib/pgsql/backups/test_db_schema.backup
+Поскольку бэкап создавался с флагом -n my_schema (только конкретная схема), в файле бэкапа нет команды создания самой схемы. 
+Поэтому перед восстановлением таблицы нужно создать бд и схему вручную.
+Создал базу:
+```bash
+psql -d postgres -c "CREATE DATABASE restored_db;"
 ```
-```sql
-\l
+Создал схему
+```bash
+\psql -d restored_db -c "CREATE SCHEMA my_schema;"
 ```
-```sql
-ALTER DATABASE test_db RENAME TO restored_db;
+Восстановил таблицу в бд:
+```bash
+pg_restore -d restored_db --no-owner --no-privileges -t table2 /var/lib/pgsql/backups/test_db_schema.backup
 ```
 Проверка:
 ```sql
+\l
 \c restored_db
 ```
 ```sql
 \dn
 ```
 ```sql
-\dt my_schema.*
+SELECT count(*) FROM my_schema.table2;
 ```
 ```sql
-SELECT count(*) FROM my_schema.table2;
+SELECT count(*) FROM my_schema.table1;
 ```
 ![pg_restore](images/HW13-4.png)
