@@ -98,17 +98,28 @@ psql -d postgres -c "CREATE DATABASE restored_db;"
 pg_restore -d restored_db --no-owner --no-privileges -t table2 /var/lib/pgsql/backups/test_db_schema.backup
 ```
 Проверка:
+список БД
 ```sql
 \l
+```
+Подключился к восстановленной БД
+```sql
 \c restored_db
 ```
+Список схем
 ```sql
 \dn
 ```
+ЧТо есть в table2:
 ```sql
 SELECT count(*) FROM my_schema.table2;
 ```
+Что есть в table1:
 ```sql
 SELECT count(*) FROM my_schema.table1;
+```
+Список таблиц в схеме my_schema:
+```sql
+\dt my_schema.*
 ```
 ![pg_restore](images/HW13-4.png)
