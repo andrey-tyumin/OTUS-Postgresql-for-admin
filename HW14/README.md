@@ -30,7 +30,7 @@
 Установил 4 LXC контейнера с AlmaLinux 9.4 в конфигурации: 1cpu, 4gb ram, 64Gb HDD.  
 Установил Postgresql-17.  
 
-Создал БД и таблицы на ВМ1 и ВМ2 и ВМ3: 
+Создал БД и таблицы на ВМ1 и ВМ2: 
 ```sql
 CREATE DATABASE repl;
 \c repl
@@ -124,7 +124,8 @@ lsn сверил с издателем:
 ```sql
 SELECT subname, received_lsn FROM pg_stat_subscription;
 ```
-На ВМ3 создал бд repl и таблицы test и tes2:
+На ВМ3:   
+создал бд repl и таблицы test и tes2:
 ```sql
 CREATE DATABASE repl;
 \c repl
