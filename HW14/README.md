@@ -324,7 +324,7 @@ pg_basebackup: error: could not send replication command "CREATE_REPLICATION_SLO
 ```bsh
 pg_basebackup -D /var/lib/pgsql/17/data -R -X stream -C -S repl_slot_new -v -h 192.168.0.42 -U repl_user -W
 ```
-- так получилось.
+\- так получилось.
 Проверил слот на ВМ3:
 ```sql
 [postgres@HW14-3 ~]$ psql
