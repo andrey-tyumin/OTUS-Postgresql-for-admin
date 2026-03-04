@@ -37,7 +37,8 @@ CREATE DATABASE repl;
 CREATE TABLE test(id int, text varchar);
 CREATE TABLE test2(id int, text varchar);
 ```
-На ВМ1 настроил публикацию для таблицы test:
+На ВМ1:   
+настроил публикацию для таблицы test:
 ```sql
 CREATE PUBLICATION test_pub FOR TABLE test;
 ```
@@ -68,7 +69,8 @@ host    replication     repl_user       192.168.0.0/24          scram-sha-256
 systemctl restart postgresql-17
 ```
 
-На ВМ2 настроил публикацию таблицы test2:
+На ВМ2:   
+настроил публикацию таблицы test2:
 ```sql
 CREATE PUBLICATION test2_pub FOR TABLE test2;
 ```
