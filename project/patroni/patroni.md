@@ -230,11 +230,12 @@ postgresql:
 tags:
   nofailover: false
 ```
-[patroni.yml from postgres-1](configs/patroni-postgresql-1.yml)
-[patroni.yml from postgres-2](configs/patroni-postgresql-2.yml)
-[patroni.yml from postgres-3](configs/patroni-postgresql-3.yml)
-[patroni.yml from postgres-4](configs/patroni-postgresql-4.yml)
-конфиги для всех 4-х реплик похожи, меняются только ip адреса и теги, которыми можно явно указать роль ноды в кластере:
+[patroni.yml from postgres-1](configs/patroni-postgresql-1.yml)  
+[patroni.yml from postgres-2](configs/patroni-postgresql-2.yml)  
+[patroni.yml from postgres-3](configs/patroni-postgresql-3.yml)  
+[patroni.yml from postgres-4](configs/patroni-postgresql-4.yml)  
+конфиги для всех 4-х реплик похожи, меняются только ip адреса и теги,  
+которыми можно явно указать роль ноды в кластере:  
 
 Предпочтительный Мастер: priority: 10, nofailover: false, nosync: false  
 Кандидат в Синхронные: priority: 0, nofailover: false, nosync: false  
