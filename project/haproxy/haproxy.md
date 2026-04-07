@@ -136,6 +136,6 @@ sudo yum install pgadmin4-web
 ```
 sudo /usr/pgadmin4/bin/setup-web.sh
 ```
-После завершения заходим на http://server-ip/pgadmin4
-Добавление пользователей через UI или скрипт.
+После завершения заходим на http://server-ip/pgadmin4  
+Добавление пользователей через UI или скрипт.  
 ![pgadmin](images/pgadmin.png)
