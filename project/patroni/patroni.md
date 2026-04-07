@@ -290,8 +290,8 @@ patronictl stop diplom-cluster postgres-1
 patronictl failover diplom-cluster
 ```
 
-Позднее, при тестировании выяснил, что дефолтное шифрование в
-Postgresql17 - scram-sha-256. и для того, чтобы работал md5 в
-postgresql(в т.ч. строка подсоединения к БД в pg_hba.conf)
-нужно поменять параметр в postgresql.conf: "password_encryption".
-Но я поменял настройку в patroni.yml на scram-sha-256 и все ок.
+Позднее, при тестировании выяснил, что дефолтное шифрование в  
+Postgresql17 - scram-sha-256. и для того, чтобы работал md5 в  
+postgresql(в т.ч. строка подсоединения к БД в pg_hba.conf)  
+нужно поменять параметр в postgresql.conf: "password_encryption".  
+Но я поменял настройку в patroni.yml на scram-sha-256 и все ок.  
