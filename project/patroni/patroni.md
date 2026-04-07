@@ -1,6 +1,6 @@
-### Установка Postgresql на сервера СУБД.
-4 сервера: postgres-1,postgres-2,postgres-3,postgres-4.
-Конфигурация серверов: 2CPU, 4Gb RAM, 50Gb Hdd
+### Установка Postgresql на сервера СУБД.  
+4 сервера: postgres-1,postgres-2,postgres-3,postgres-4.  
+Конфигурация серверов: 2CPU, 4Gb RAM, 50Gb Hdd  
 
 отключил SELinux:
 ```
