@@ -14,7 +14,7 @@ sudo chown -R etcd:etcd /var/lib/etcd /etc/etcd
 ```
 wget https://github.com/etcd-io/etcd/releases/download/v3.6.9/etcd-v3.6.9-linux-amd64.tar.gz
 ```
-распаковал в /usr/local/bin:
+распаковал:
 ```
 sudo tar -xzvf ./etcd-v3.6.9-linux-amd64.tar.gz
 ```
@@ -39,7 +39,9 @@ ETCD_ENABLE_V2=true
 sudo chown etcd:etcd /etc/etcd/etcd.env
 ```
 Создал systemd unit:
+```
 sudo vi /etc/systemd/system/etcd.service
+```
 ```
 [Unit]
 Description=etcd
