@@ -68,8 +68,10 @@ sudo chmod 600 /var/lib/patroni/pgpass
 про обязательность заполнения, в работе проверял - patroni перезаписывает 
 этот файл после старта.
 
-Т.к. бинарники PostgreSQL 17 на AlmaLinux 9.7 лежат в "нестандартном" (не таком как в ubuntu :-) ) пути (/usr/pgsql-17/bin),
-их надо добавить в PATH пользователя patroni, чтобы он мог находить команды без указания полного пути:
+Т.к. бинарники PostgreSQL 17 на AlmaLinux 9.7 лежат в "нестандартном"  
+(не таком как в ubuntu :-) ) пути (/usr/pgsql-17/bin),
+их надо добавить в PATH пользователя patroni, чтобы он мог находить команды 
+без указания полного пути:
 ```
 sudo bash -c 'cat > /etc/profile.d/patroni-env.sh <<EOF
 export PATH=/usr/local/bin:$PATH
