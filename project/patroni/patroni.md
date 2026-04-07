@@ -237,10 +237,10 @@ tags:
 конфиги для всех 4-х реплик похожи, меняются только ip адреса и теги,  
 которыми можно явно указать роль ноды в кластере:  
 
-Предпочтительный Мастер: priority: 10, nofailover: false, nosync: false  
-Кандидат в Синхронные: priority: 0, nofailover: false, nosync: false  
-Кандидат в Асинхронные: priority: 0, nofailover: false, nosync: false  
-Reserved Replica: priority: 0, nofailover: true, nosync: true  
+Предпочтительный Мастер: nofailover: false, nosync: false  
+Кандидат в Синхронные: nofailover: false, nosync: false  
+Кандидат в Асинхронные: nofailover: false, nosync: false  
+Reserved Replica: nofailover: true, nosync: true  
 чтобы "закрепить" синхронную реплику — надо исключить лишние узлы прописав им теги nosync: true  
 
 проверка конфига:
