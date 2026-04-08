@@ -10,7 +10,7 @@
  ```
  etcdctl --endpoints=192.168.77.249:2379,192.168.77.241:2379,192.168.77.105:2379 endpoint hashkv --write-out=table
 ```
-![etcd hash](etcd-cluster-hash-before.png)
+![etcd hash](images/etcd-cluster-hash-before.png)
 Узнал кто лидер:
 ```
 etcdctl --endpoints=192.168.77.249:2379,192.168.77.241:2379,192.168.77.105:2379 endpoint status --write-out=table | grep "true" | awk '{print $2}'
