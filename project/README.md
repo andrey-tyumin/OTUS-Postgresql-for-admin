@@ -5,6 +5,7 @@
 2 этап - [Установка, настройка etcd  на сервера etcd-1,2,3.](etcd/etcd.md)  
 3 этап - [1.Установка, настройка patroni  на сервера postgresql-1,2,3,4](patroni/patroni.md)  
 4 этап - [Установка, настройка HaProxy](haproxy/haproxy.md)  
+5 этап - [Тестирование](testing/testing.md)
 
 Схема:  
 ![scheme](images/otus-project.png)  
